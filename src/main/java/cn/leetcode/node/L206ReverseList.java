@@ -3,12 +3,12 @@ package cn.leetcode.node;
 /**
  * 反转链表
  */
-public class L206 {
+public class L206ReverseList {
     public static void main(String[] args) {
         int[] a = new int[]{1, 2, 3};
         ListNode node = Utils.arrayToListNode(a);
         Utils.printListNode(node);
-        ListNode nodeNew = L206.reverseList(node);
+        ListNode nodeNew = L206ReverseList.reverseList(node);
         Utils.printListNode(nodeNew);
     }
 

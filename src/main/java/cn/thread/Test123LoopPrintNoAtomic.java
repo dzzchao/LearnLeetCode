@@ -2,38 +2,37 @@ package cn.thread;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-//有缺陷会导致线程空转
-public class Test123LoopPrint {
+//会有问题，不知道为啥会有问题
+public class Test123LoopPrintNoAtomic {
+    static int flag = 0;
+
     public static void main(String[] args) {
-        AtomicInteger flag = new AtomicInteger();
         Thread b1 = new Thread(() -> {
             while (true) {
-                if (flag.get() == 0) {
+                if (flag == 0) {
                     System.out.println("1");
-                    flag.incrementAndGet();
+                    flag++;
                 }
             }
         });
         Thread b2 = new Thread(() -> {
             while (true) {
-                if (flag.get() == 1) {
+                if (flag == 1) {
                     System.out.println("2");
-                    flag.incrementAndGet();
+                    flag++;
                 }
             }
         });
         Thread b3 = new Thread(() -> {
             while (true) {
-                if (flag.get() == 2) {
+                if (flag == 2) {
                     System.out.println("3");
-                    flag.getAndSet(0);
+                    flag = 0;
                 }
             }
         });
-
         b1.start();
         b2.start();
         b3.start();
-
     }
 }

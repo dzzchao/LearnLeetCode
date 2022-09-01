@@ -2,8 +2,6 @@ package cn.kotlin
 
 
 fun main() {
-    val listaaaaa: List<FSF> = mutableListOf()
-    println(listaaaaa)
 
 }
 class FSF() {

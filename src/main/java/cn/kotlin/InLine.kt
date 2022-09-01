@@ -12,7 +12,7 @@ fun main() {
         //cross inline
         hello {
             //only inline function can use return
-
+//            return@hello
         }
 
         normalHello {
