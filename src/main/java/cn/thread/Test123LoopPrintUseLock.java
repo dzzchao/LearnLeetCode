@@ -17,8 +17,8 @@ public class Test123LoopPrintUseLock {
         Thread b1 = new Thread(() -> {
             while (true) {
 //                System.out.println(11111111 + "==start");
+                lock.lock();
                 try {
-                    lock.lock();
                     if (flag.get() == 0) {
                         System.out.println("1");
                         flag.incrementAndGet();
@@ -37,8 +37,8 @@ public class Test123LoopPrintUseLock {
         Thread b2 = new Thread(() -> {
             while (true) {
 //                System.out.println(22222222 + "==start");
+                lock.lock();
                 try {
-                    lock.lock();
                     if (flag.get() == 1) {
                         System.out.println("2");
                         flag.incrementAndGet();
@@ -57,8 +57,8 @@ public class Test123LoopPrintUseLock {
         Thread b3 = new Thread(() -> {
             while (true) {
 //                System.out.println(3333333 + "==start");
+                lock.lock();
                 try {
-                    lock.lock();
                     if (flag.get() == 2) {
                         System.out.println("3");
                         flag.compareAndSet(2, 0);
@@ -78,6 +78,5 @@ public class Test123LoopPrintUseLock {
         b1.start();
         b2.start();
         b3.start();
-
     }
 }

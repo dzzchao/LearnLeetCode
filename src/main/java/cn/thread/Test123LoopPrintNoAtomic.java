@@ -6,6 +6,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Test123LoopPrintNoAtomic {
     static int flag = 0;
 
+    Runnable a = new Runnable() {
+        @Override
+        public void run() {
+
+        }
+    };
+
     public static void main(String[] args) {
         Thread b1 = new Thread(() -> {
             while (true) {
@@ -35,4 +42,6 @@ public class Test123LoopPrintNoAtomic {
         b2.start();
         b3.start();
     }
+
 }
+

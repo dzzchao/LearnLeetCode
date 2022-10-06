@@ -1,15 +1,47 @@
 package cn.java;
 
 class LearnInterface {
-    public static int count = 2;
-    static LearnInterface face = new LearnInterface();
+    public static void main(String[] args) {
+        LearnInterface_T t = new LearnInterface_T();
+        t.abstract1();
+        t.inter1();
+    }
+}
 
-    public LearnInterface() {
-        System.out.println("构造方法 ");
-        count++;
+
+interface MyInterFace {
+    void inter1();
+
+    void inter2();
+}
+
+abstract class MyAbstractClass implements MyInterFace {
+
+    void abstract1() {
+        System.out.println("F  abstract1");
+
     }
 
-    public static void main(StringTest[] args) {
-        System.out.println(LearnInterface.count);
+    void abstract2() {
+        System.out.println("F  abstract2");
+    }
+}
+
+class LearnInterface_T extends MyAbstractClass {
+
+    @Override
+    void abstract1() {
+        super.abstract1();
+        System.out.println("abstract1");
+    }
+
+    @Override
+    public void inter1() {
+        System.out.println("inter1");
+    }
+
+    @Override
+    public void inter2() {
+        System.out.println("inter2");
     }
 }

@@ -2,7 +2,9 @@ package cn.thread;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-//有缺陷会导致线程空转
+/**
+ * @deprecated  有缺陷会导致线程空转
+ */
 public class Test123LoopPrint {
     public static void main(String[] args) {
         AtomicInteger flag = new AtomicInteger();
@@ -12,6 +14,7 @@ public class Test123LoopPrint {
                     System.out.println("1");
                     flag.incrementAndGet();
                 }
+                System.out.println("========线程空转");
             }
         });
         Thread b2 = new Thread(() -> {
@@ -20,6 +23,7 @@ public class Test123LoopPrint {
                     System.out.println("2");
                     flag.incrementAndGet();
                 }
+                System.out.println("========线程空转");
             }
         });
         Thread b3 = new Thread(() -> {
@@ -28,6 +32,7 @@ public class Test123LoopPrint {
                     System.out.println("3");
                     flag.getAndSet(0);
                 }
+                System.out.println("========线程空转");
             }
         });
 

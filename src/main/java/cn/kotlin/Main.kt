@@ -1,9 +1,17 @@
 package cn.kotlin
 
 fun main() {
-    for (i in 1..10) {
-        if (i % 2 == 0) {
-            println("偶数$i")
-        }
+    a()
+    a()
+}
+fun a() {
+    val runnable = Runnable {
+        println("asdf")
     }
+    b(runnable)
+}
+var set = mutableSetOf<Runnable>()
+fun b(r: Runnable) {
+    set.add(r)
+    println(set.size)
 }

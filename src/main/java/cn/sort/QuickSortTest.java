@@ -9,18 +9,18 @@ class QuickSortTest {
         QuickSortTest q = new QuickSortTest();
         int[] nums = {8, 32, 7, 16, 25, 3, 19};
         System.out.println(Arrays.toString(nums));
-        q.sort(nums, 0, nums.length - 1, new Random());
+        q.sort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));
     }
 
-    private void sort(int[] nums, int left, int right, Random random) {
+    private void sort(int[] nums, int left, int right) {
         if (left >= right) return;
-        int p = partition(nums, left, right, random);
-        sort(nums, left, p - 1, random);
-        sort(nums, p + 1, right, random);
+        int p = partition(nums, left, right);
+        sort(nums, left, p - 1);
+        sort(nums, p + 1, right);
     }
 
-    private int partition(int[] nums, int left, int right, Random random) {
+    private int partition(int[] nums, int left, int right) {
         int j = 0;
         for (int i = left + 1; i <= right; i++) {
             if (nums[left] > nums[i]) {
@@ -37,6 +37,4 @@ class QuickSortTest {
         nums[i] = nums[j];
         nums[j] = t;
     }
-
-
 }

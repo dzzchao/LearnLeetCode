@@ -5,7 +5,8 @@ import java.util.List;
 
 /**
  * PECS
- *  
+ *
+ * 范性通配符
  */
 public class GenericsTest {
     public static void main(String[] args) {
@@ -21,6 +22,8 @@ public class GenericsTest {
         fatherList.add(new Father( "123"));
         fatherList.add(new Father("123"));
         inputListSon(fatherList);
+
+
     }
 
     public static void inputListFather(List<? extends Father> list) {

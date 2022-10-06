@@ -1,14 +1,8 @@
 package cn.kotlin.coroutinue
 
-import kotlinx.coroutines.delay
 import kotlin.coroutines.*
 
-
-
 fun main() {
-
-
-
     val continuation = suspend {
         println("In Coroutine.")
         5
@@ -16,17 +10,19 @@ fun main() {
         override fun resumeWith(result: Result<Int>) {
             println("Coroutine End: $result")
         }
+
         override val context = EmptyCoroutineContext
     })
-
     continuation.resume(Unit)
 
-    launchContinue(ProducerScope<Int>()) {
-        produce(11)
-        //delay(2222) // 因为有 @RestrictsSuspension ，所以不能使用
-        produce(2222)
-    }
+//    launchContinue(ProducerScope<Int>()) {
+//        produce(11)
+//        //delay(2222) // 因为有 @RestrictsSuspension ，所以不能使用
+//        produce(2222)
+//    }
 }
+
+
 
 @RestrictsSuspension
 class ProducerScope<T> {
